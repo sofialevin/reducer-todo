@@ -5,8 +5,21 @@ export const reducer = (state, action) => {
           return {...state, todos: [
               ...state.todos, action.payload 
           ]}
-        // case 'REMOVE':
-        //     return state.filter((todo) => todo.id !== action.payload.id)
+        case 'REMOVE':
+            return {...state, todos: state.todos.filter((todo) => todo.completed === false)}
+        case 'TOGGLE':
+            return {
+                ...state, todos: state.todos.map((todo) => {
+                    if (action.payload === todo.id) {
+                        console.log(state)
+                    return {
+                      ...todo,
+                      completed: !todo.completed
+                    };
+                  } else {
+                    return todo;
+                  }})
+            }
         default:
           return state
       }

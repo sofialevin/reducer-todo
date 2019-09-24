@@ -11,6 +11,12 @@ const TodoForm = () => {
         setNewTodo(e.target.value);
       };
 
+    const toggle = (id) => {
+        dispatch({
+            type: "TOGGLE", payload: id
+        })
+    }
+
     return (
         <div>
             <Form onSubmit={(event) => {
@@ -26,13 +32,19 @@ const TodoForm = () => {
                 <Form.Field>
                     <input placeholder='Todo' value={newTodo} onChange={handleChanges}/>
                 </Form.Field>
-                <Button type='submit'>Add Todo</Button>
+                <Button>Add Todo</Button>
             </Form>
             <div>
                 {
-                    state.todos.map((todo) => <Todo todo={todo} key={todo.id}/>)
+                    state.todos.map((todo) => <Todo todo={todo} key={todo.id} toggle={toggle}/>)
                 }
             </div>
+            <Button onClick={(event) => {
+                event.preventDefault();
+                dispatch({
+                    type: "REMOVE"
+                })
+            }}>Clear Completed</Button>
         </div>
         
     );
