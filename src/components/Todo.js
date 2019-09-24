@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Todo = () => {
+const Todo = (props) => {
     return (
-        <p></p>
+        <p>
+            {props.todo.item}
+        </p>
     );
 }
  
