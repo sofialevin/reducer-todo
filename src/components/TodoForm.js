@@ -18,7 +18,7 @@ const TodoForm = () => {
     }
 
     return (
-        <div>
+        <div className="todos">
             <Form onSubmit={(event) => {
                 event.preventDefault();
                 dispatch({ type: "ADD", payload: {
@@ -34,7 +34,7 @@ const TodoForm = () => {
                 </Form.Field>
                 <Button>Add Todo</Button>
             </Form>
-            <div>
+            <div className="todo-list">
                 {
                     state.todos.map((todo) => <Todo todo={todo} key={todo.id} toggle={toggle}/>)
                 }

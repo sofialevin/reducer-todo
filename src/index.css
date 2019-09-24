@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+div > .ui.form .field {
+  clear: both;
+  margin: 0;
+  width: 200px;
+}
+
+.ui.form {
+  display: flex;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

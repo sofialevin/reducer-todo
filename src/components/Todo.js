@@ -8,7 +8,9 @@ const Todo = (props) => {
     }
 
     return (
-        <Checkbox onChange={handleCheck} checked={props.todo.completed} label={props.todo.item}/>
+        <div>
+            <Checkbox onChange={handleCheck} checked={props.todo.completed} label={props.todo.item}/>
+        </div>
     );
 }
  
